@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Convite Casamento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 
   <meta property="og:title" content="Convite Casamento">
   <meta property="og:description" content="Queridos amigos, estamos felizes em convidar vocês para o nosso casamento. Esperamos vocês nesse dia tão especial!">
@@ -86,6 +88,40 @@
       animation: entrada 0.8s ease-out both;
     }
 
+    .dica {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      font-family: 'Playfair Display', 'Georgia', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: #1a3b1a;
+      opacity: 0;
+      pointer-events: none;
+      text-shadow: 0 0 8px rgba(235, 227, 216, 0.8);
+    }
+
+    .panel-1 .dica {
+      animation:
+        aparecer 1s 4s ease-out forwards,
+        flutuar 2.4s 5s ease-in-out infinite;
+    }
+
+    .virado .panel-2 .dica {
+      animation:
+        aparecer 1s 4s ease-out forwards,
+        flutuar 2.4s 5s ease-in-out infinite;
+    }
+
+    @keyframes aparecer {
+      to { opacity: 1; }
+    }
+
+    @keyframes flutuar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
     @keyframes entrada {
       from {
         opacity: 0;
@@ -104,11 +140,13 @@
   <div class="page" id="page">
     <div class="panel panel-1" onclick="document.getElementById('page').classList.add('virado')">
       <img src="WhatsApp Image 2026-06-28 at 00.04.23.jpeg" alt="Convite">
+      <span class="dica">Toque para avançar</span>
     </div>
     <div class="panel panel-2">
       <a href="https://noivos.casar.com/adrielle-e-adriel">
         <img src="image2.jpeg" alt="Convite completo">
       </a>
+      <span class="dica">Toque para acessar</span>
     </div>
   </div>
 </body>
