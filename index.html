@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite</title>
+  <title>Convite Casamento</title>
+
+  <meta property="og:title" content="Convite Casamento">
+  <meta property="og:description" content="Queridos amigos, estamos felizes em convidar vocês para o nosso casamento. Esperamos vocês nesse dia tão especial!">
+  <meta property="og:image" content="https://lipe-s-m.github.io/convite/WhatsApp%20Image%202026-06-28%20at%2000.04.23.jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lipe-s-m.github.io/convite/">
+
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     * {
       margin: 0;
@@ -15,20 +23,67 @@
       width: 100%;
       height: 100%;
       background: #ebe3d8;
+      overflow: hidden;
     }
 
-    a {
-      display: block;
+    .page {
+      position: relative;
       width: 100%;
       height: 100dvh;
     }
 
-    img {
+    .panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .panel img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    .panel-1 {
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .panel-1 img {
       animation: entrada 1.2s ease-out both;
+    }
+
+    .panel-2 {
+      z-index: 1;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .panel-2 a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .virado .panel-1 {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .virado .panel-2 {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .virado .panel-2 img {
+      animation: entrada 0.8s ease-out both;
     }
 
     @keyframes entrada {
@@ -46,8 +101,15 @@
   </style>
 </head>
 <body>
-  <a href="https://noivos.casar.com/adrielle-e-adriel">
-    <img src="WhatsApp Image 2026-06-28 at 00.04.23.jpeg" alt="Convite">
-  </a>
+  <div class="page" id="page">
+    <div class="panel panel-1" onclick="document.getElementById('page').classList.add('virado')">
+      <img src="WhatsApp Image 2026-06-28 at 00.04.23.jpeg" alt="Convite">
+    </div>
+    <div class="panel panel-2">
+      <a href="https://noivos.casar.com/adrielle-e-adriel">
+        <img src="image2.jpeg" alt="Convite completo">
+      </a>
+    </div>
+  </div>
 </body>
 </html>
